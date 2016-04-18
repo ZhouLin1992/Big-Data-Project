@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Scene Recognition Demo</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="ct" content="x9JWUPmI-t_V9xCSGL5eFuepkjHOdsKwnvc0" />
+  <link rel="icon" href="https://visual-recognition-demo.mybluemix.net/images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="./Visual Recognition Demo_files/style.css" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</head>
+<body data-gr-c-s-loaded="true" data-pinterest-extension-installed="cr1.39.1">
+  <header class="_demo--heading">
+   <div class="_demo--container">
+    <a href="localhost/test4/untitled.html" class="wordmark"><span class="wordmark--right">Lumos</span></a>
+  </div>
+</header>
+<div class="_demo--banner">
+ <div class="_demo--container">
+  <div class="banner--service-icon-container">
+   <img src="./Visual Recognition Demo_files/header_icon.png" alt="Visual Recognition API Icon" class="banner--service-icon" />
+ </div>
+ <div class="banner--service-info">
+   <h1 class="banner--service-title base--h1"><img src="./Visual Recognition Demo_files/service-icon.svg" alt="Visual Recognition API Icon" class="banner--service-icon_INLINE" />Scene Recognition Demo</h1>
+   <div class="banner--service-description">
+    Scene Recognition allows you to derive insights from an image based on its visual content. You can organize image libraries, understand an individual image, and create custom classifiers for specific results that are tailored to your needs.
+  </div>
+  <div class="banner--service-resource">
+    <!-- <span class="icon icon-link"> </span> -->
+    <strong>Online Resources:</strong>
+  </div>
+  <div class="banner--service-links">
+    <li class="base--li banner--service-link-item"><a href="http://places.csail.mit.edu/" class="base--a">MIT Places Database</a></li>
+    <li class="base--li banner--service-link-item"><a href="http://www.image-net.org/" class="base--a">ImageNet</a></li>
+    <li class="base--li banner--service-link-item"><a href="https://github.com/watson-developer-cloud/visual-recognition-nodejs" class="base--a">Lumos on Github</a></li>
+    <li class="base--li banner--service-link-item"><a href="https://www.cs.toronto.edu/~kriz/" class="base--a">AlexNet</a></li>
+  </div>
+</div>
+</div>
+</div>
+<div class="_demo--container">
+ <article class="_content base--article">
+  <div role="tabpanel" class="tab-panels tab-views">
+   <ul role="tablist" class="tab-panels--tab-list tab-views--tab-list">
+   </ul>
+   <div class="tab-panels--tab-content">
+    <h2 class="base--h2 use--header">Select an Image</h2>
+    <form id="use--fileupload" data-upload-template-id="template-upload-use" class="use--form">
+     <div class="use--example-images use--example-images_default">
+      <input id="use--image0_default" type="radio" name="use--example-images" value="someImage" class="use--example-radio" />
+      <label for="use--image0_default" class="use--example-thumb square" style="height: 256px;"><img src="./Visual Recognition Demo_files/1.jpg" class="use--example-image landscape loaded" />
+       <div class="use--example-image-overlay"></div></label>
+       <input id="use--image1_default" type="radio" name="use--example-images" value="someImage" class="use--example-radio" />
+       <label for="use--image1_default" class="use--example-thumb square" style="height: 256px;"><img src="./Visual Recognition Demo_files/2.jpg" class="use--example-image landscape loaded" />
+         <div class="use--example-image-overlay"></div></label>
+         <input id="use--image2_default" type="radio" name="use--example-images" value="someImage" class="use--example-radio" />
+         <label for="use--image2_default" class="use--example-thumb square" style="height: 256px;"><img src="./Visual Recognition Demo_files/3.jpg" class="use--example-image landscape loaded" />
+           <div class="use--example-image-overlay"></div></label>
+           <input id="use--image3_default" type="radio" name="use--example-images" value="someImage" class="use--example-radio" />
+           <label for="use--image3_default" class="use--example-thumb square" style="height: 256px;"><img src="./Visual Recognition Demo_files/4.jpg" class="use--example-image loaded" />
+             <div class="use--example-image-overlay"></div></label>
+             <input id="use--image4_default" type="radio" name="use--example-images" value="someImage" class="use--example-radio" />
+             <label for="use--image4_default" class="use--example-thumb square" style="height: 256px;"><img src="./Visual Recognition Demo_files/5.jpg" class="use--example-image landscape loaded" />
+               <div class="use--example-image-overlay"></div></label>
+               <input id="use--image5_default" type="radio" name="use--example-images" value="someImage" class="use--example-radio" />
+               <label for="use--image5_default" class="use--example-thumb square" style="height: 256px;"><img src="./Visual Recognition Demo_files/6.jpg" class="use--example-image landscape loaded" />
+                 <div class="use--example-image-overlay"></div></label>
+               </div>
+           </form>
+           <div class="container">
+  <h1>upload</h1>
+  <hr>  
+  <div id="preview"><img src="no-image.jpg" /></div>
+    
+  <form id="form" action="ajaxupload.php" method="post" enctype="multipart/form-data">
+    <input id="uploadImage" type="file" accept="image/*" name="image" />
+    <input id="button" type="submit" value="Upload">
+  </form>
+    <div id="err"></div>
+  <hr>
+</div>
+           <div class="loading use--loading" style="display: none;">
+             <img src="./Visual Recognition Demo_files/loading-indicator.gif" class="use--loading-image loading--image" />
+             <p class="base--p use--loading-message loading--message">Lumos is classifying the image to determine a match...</p>
+           </div>
+           <div class="error use--error" style="display: none;">
+             <img src="./Visual Recognition Demo_files/alert.svg" class="use--error-image error--image" />
+             <p class="base--p use--error-message error--message">Scene Recognition is not available right now...</p>
+           </div>
+           <div class="use--output" style="display: none;">
+             <hr class="base--hr use--hr" />
+             <h2 class="base--h2 use--output-header">Results</h2>
+             <div class="use--output-row">
+              <div class="use--output-left">
+               <div class="use--output-image-container">
+                <img class="use--output-image landscape" />
+              </div>
+            </div>
+            <div class="use--output-right">
+             <table class="base--table use--output-table">
+              <thead class="base--thead use--output-thead">
+               <tr class="base--tr use--output-tr">
+                <td class="base--td use--output-td"><a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/visual-recognition/overview.shtml" target="_blank" class="base--a">Classifier</a></td>
+                <td class="base--td use--output-td"> <a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/visual-recognition/overview.shtml" target="_blank" class="base--a">Confidence Score</a></td>
+              </tr>
+            </thead>
+            <tbody class="use--output-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <hr class="base--hr use--hr" />
+      <div class="use--output-row">
+        <a href="https://visual-recognition-demo.mybluemix.net/train"><button class="base--button use--train-button">Create a custom classifier</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+</article>
+</div>
+</body>
+</html>

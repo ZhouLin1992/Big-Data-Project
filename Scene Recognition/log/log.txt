@@ -1,0 +1,1 @@
+*result*<tr><td>Alley</td></tr><tr><td>Alley</td><td>0.999999761581</td></tr><tr><td>Amusement Park</td><td>4.24754729917e-16</td></tr><tr><td>Bedroom</td><td>1.6551219284e-09</td></tr><tr><td>Bookstore</td><td>4.73047870406e-13</td></tr><tr><td>Bridge</td><td>2.595567139e-07</td></tr>
